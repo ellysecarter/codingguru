@@ -8,22 +8,44 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
+<!-- Fixed header here -->
 <body>
-    <div class="wrap">
-      <header>
-        <h1>Coding Guru</h1>
-        <h2>Coding Challenge! Do you have the knowledge?</h2>
-        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score-time by 10 seconds!</p>
-        <br />
-        <p2>Good luck!</p2>
-      </header>
+  <div class="header">
+    <button id="scores">View High Scores</button>
+    <h2 id="timer">Time: <span id="countdown"></span></h2>
+  </div>
 
-      <div class="quiz">
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Start Quiz</button>
-        </div>
+<!-- Quiz questions and answers -->
+  <div class="quiz">
+    <div id="starting-page">
+        <h1 id="title">Coding Guru!</h1>
+        <h2 id="title2">Coding Challenge! Do you have the knowledge?</h2>
+        <p id="challenge">You have one minute to answer the following code-related questions. Keep in mind that incorrect answers will penalize your score-time by 10 seconds!</p>
+        <br />
+        <p id="challenge">Goodluck!</p>
+        <p id="question"></p>
+        <p id="answers"></p>
+        <button id="start">Start Quiz!</button>
       </div>
-    <script src="./assets/js/script.js"></script>
+  </div>
+
+  <!-- Result page where you enter your initials -->
+  <div class="results">
+    <h1 id="title">All  done!</h1>
+    <p id="final-score">Your final score is <span id="final-score"></span></p>
+    <p id="initials">Enter your initials:</p>
+    <input type="text" name="initial" id="initial" placeholder="Initials" aria-label="Initials"/>
+    <button id="submit">Submit</button> 
+  </div>
+
+<!-- view highs cores -->
+  <div class="high-scores">
+    <h2 id="score-header">High Scores!</h2>
+    <ol id="score-list"></ol>
+    <button id="clear">Clear high scores</button>
+    <button id="refresh">Go Back</button>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
