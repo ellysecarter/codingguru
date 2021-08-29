@@ -118,6 +118,12 @@ function countdownTimer () {
       })
     
   }
+    var answer=document.createElement("button")
+    answer.classList.add("answer")
+
+    let allAnswers = document.querySelectorAll('.answers');
+    questionIndex++
+    questionChange()
   }
 
  // if right answer move on to next ques and say "right answer"
