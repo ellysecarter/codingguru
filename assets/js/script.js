@@ -45,7 +45,7 @@ var questions = [
 ]
 
 function hideResults () {
-  document.getElementById
+  document.getElementById("results").style.display = "none";
 }
 
 // start quiz
@@ -74,15 +74,13 @@ function countdownTimer () {
         timeLeft--;
         timerEl.textContent = timeLeft;
         
-      }   else if (timeLeft < 0 && questionIndex < 4 ){
+      }   else if (timeLeft === 0 && questionIndex < 4 ){
         clearInterval(timeInterval);
-        displayMessage = "Your time is up!"
+        window.alert("Your time is up!")
       }
     },1000);
   }
   
-
-  // display first ques and answers
 
 
   // questions here
@@ -100,11 +98,10 @@ function countdownTimer () {
         console.log(this.value)
         if( this.value==correctAnswer){
           console.log("true")
-          score++
-          displayMessage("Correct!")
+        
         } else {
           console.log("false")
-          timeLeft-10 
+          
         }
         questionIndex++
         questionChange()
@@ -126,7 +123,7 @@ var goBack = function (){
 }  
 
 
-// Add event listener to generate button
+// Add event listeners to generate buttons
 startBtn.addEventListener("click", startQuiz);
 
 // submitBtn.addEventListener("click", "");
@@ -134,4 +131,5 @@ startBtn.addEventListener("click", startQuiz);
 // clearBtn.addEventListener("click", "");
 
 // scoresBtn.addEventListener("click", "");
+
 goBackBtn.addEventListener("click", goBack); 
