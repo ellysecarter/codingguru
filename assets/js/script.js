@@ -111,7 +111,11 @@ function countdownTimer () {
           timeLeft -= penalty
           
         }
-        let allAnswers = document.querySelectorAll('.answers');
+        let allAnswers = document.querySelectorAll('.answer');
+        allAnswers[0].remove()
+        allAnswers[1].remove()
+        allAnswers[2].remove()
+        allAnswers[3].remove()
         questionIndex++
         questionChange()
         // hide previous answers but show current ones
