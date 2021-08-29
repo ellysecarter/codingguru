@@ -7,13 +7,13 @@ var startBtn = document.getElementById('start')
 var initialID = document.getElementById('initials')
 var submitBtn = document.getElementById('submit')
 var clearBtn = document.getElementById('clear')
-var refreshBtn = document.getElementById('refresh')
+var goBackBtn = document.getElementById('goback')
 var finalScore = document.getElementById('final-score')
 var scoreListEl = document.getElementById('score-list')
 var scoresBtn = document.getElementById('scores')
 var questionIndex = 0
 var timeLeft = 101
-
+var score = 0
 
 // array of questions and answers for quiz
 var questions = [
@@ -29,15 +29,24 @@ var questions = [
       a: "Infinite loop" },
 
     {
-      q: "Which command will stop an infinite loop?", s: [ "Esc","Ctrl - C", "Shift - C", "Alt - C"], a: "Ctrl - C" },
+      q: "Which command will stop an infinite loop?", 
+      s: [ "Esc","Ctrl - C", "Shift - C", "Alt - C"], 
+      a: "Ctrl - C" },
 
     {
-      q: "During program development, software requirements specify", s: ["What the task is that the program must perform", "How the program will accomplish the task", "How to divide the task into subtasks", "How to test the program when it is done"], a: "What the task is that the program must perform" },
+      q: "During program development, software requirements specify", 
+      s: ["What the task is that the program must perform", "How the program will accomplish the task", "How to divide the task into subtasks", "How to test the program when it is done"], 
+      a: "What the task is that the program must perform" },
 
     {
-      q: "Which of the sets of statements below will add 1 to x if x is positive and subtract 1 from x if x is negative but leave x alone if x is 0?", s: [, "If (x > 0) x++; else x--;", "If (x == 0) x = 0;else x++;x--;", "X++; x--;","If (x > 0) x++; else if (x < 0) x--;"], a: "If (x > 0) x++; else if (x < 0) x--;" }
+      q: "Which of the sets of statements below will add 1 to x if x is positive and subtract 1 from x if x is negative but leave x alone if x is 0?", 
+      s: [, "If (x > 0) x++; else x--;", "If (x == 0) x = 0;else x++;x--;", "X++; x--;","If (x > 0) x++; else if (x < 0) x--;"], 
+      a: "If (x > 0) x++; else if (x < 0) x--;" }
 ]
 
+function hideResults () {
+  document.getElementById
+}
 
 // start quiz
 var startQuiz = function (){
@@ -46,6 +55,11 @@ var startQuiz = function (){
 
   questionChange ()
 
+  hideWelcome ()
+}
+
+function hideWelcome (){
+  document.getElementById("starting-page").style.display = "none";
 }
 
 
@@ -62,18 +76,13 @@ function countdownTimer () {
         
       }   else if (timeLeft < 0 && questionIndex < 4 ){
         clearInterval(timeInterval);
-        // displayMessage = "Your time is up!"
+        displayMessage = "Your time is up!"
       }
     },1000);
   }
   
 
   // display first ques and answers
-
-  // if right answer move on to next ques and say "right answer"
-
-  // if wrong answer move on to next ques and take off 10 seconds and display "wrong answer"
-
 
 
   // questions here
@@ -85,25 +94,36 @@ function countdownTimer () {
       var answer=document.createElement("button")
       var answerText=currentQuestion.s[i]
       answer.innerText=answerText
+      answer.setAttribute("value", answerText)
+      answerEl.appendChild(answer)
       answer.addEventListener("click", function(){
-        if( answerText==correctAnswer){
+        console.log(this.value)
+        if( this.value==correctAnswer){
           console.log("true")
+          score++
+          displayMessage("Correct!")
         } else {
           console.log("false")
+          timeLeft-10 
         }
-        console.log("Iclicked an answer")
+        questionIndex++
+        questionChange()
+        // hide previous answers but show current ones
+
+        console.log(questionIndex)
       })
-      answerEl.appendChild(answer)
-      // var answer = (questions[i].q);
-      // if (
-      //   (answer === true && questions[i].a === '0');
-      // }
     
   }
   }
 
+ // if right answer move on to next ques and say "right answer"
+
+  // if wrong answer move on to next ques and take off 10 seconds and display "wrong answer"
 
 
+var goBack = function (){
+  location.href = "https://ellysecarter.github.io/codingguru/"
+}  
 
 
 // Add event listener to generate button
@@ -114,3 +134,4 @@ startBtn.addEventListener("click", startQuiz);
 // clearBtn.addEventListener("click", "");
 
 // scoresBtn.addEventListener("click", "");
+goBackBtn.addEventListener("click", goBack); 

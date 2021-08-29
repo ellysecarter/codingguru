@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Guru</title>
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -10,22 +11,34 @@
 
 <!-- Fixed header here -->
 <body>
-  <div class="header">
-    <button id="scores">View High Scores</button>
-    <h2 id="timer">Time: <span id="countdown"></span></h2>
+  <div class="row">
+    <div class="col-sm-8">
+      <button id="scores">View High Scores</button>
+    </div>
+    <div class="col-sm-6 offset-sm-10">
+      <h2 id="timer">Time: <span id="countdown"></span></h2>
+    </div>
   </div>
 
 <!-- Quiz questions and answers -->
-  <div class="quiz">
+  <div id="quiz">
     <div id="starting-page">
+      <div class="row">
+        <div class="col-md-3">
         <h1 id="title">Coding Guru!</h1>
         <h2 id="title2">Coding Challenge! Do you have the knowledge?</h2>
         <p id="challenge">You have one minute to answer the following code-related questions. Keep in mind that incorrect answers will penalize your score-time by 10 seconds!</p>
         <br />
         <p id="challenge">Goodluck!</p>
-        <p id="question"></p>
-        <div id="answers"></div>
         <button id="start">Start Quiz!</button>
+      </div>
+      </div>
+  </div>
+
+    <div id="questions-answers">
+        <p id="question"></p>
+          <div id="answers"></div>
+      </div>
       </div>
   </div>
 
@@ -43,7 +56,7 @@
     <h2 id="score-header">High Scores!</h2>
     <ol id="score-list"></ol>
     <button id="clear">Clear high scores</button>
-    <button id="refresh">Go Back</button>
+    <button id="goback">Go Back</button>
   </div>
 
   <script src="./assets/js/script.js"></script>
