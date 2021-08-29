@@ -96,6 +96,7 @@ function countdownTimer () {
      
       var correctAnswer=currentQuestion.a
       var answer=document.createElement("button")
+      answer.classList.add("answer")
       var answerText=currentQuestion.s[i]
       answer.innerText=answerText
       answer.setAttribute("value", answerText)
@@ -110,6 +111,7 @@ function countdownTimer () {
           timeLeft -= penalty
           
         }
+        let allAnswers = document.querySelectorAll('.answers');
         questionIndex++
         questionChange()
         // hide previous answers but show current ones
@@ -118,12 +120,7 @@ function countdownTimer () {
       })
     
   }
-    var answer=document.createElement("button")
-    answer.classList.add("answer")
-
-    let allAnswers = document.querySelectorAll('.answers');
-    questionIndex++
-    questionChange()
+    
   }
 
  // if right answer move on to next ques and say "right answer"
