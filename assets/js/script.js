@@ -14,6 +14,7 @@ var scoresBtn = document.getElementById('scores')
 var questionIndex = 0
 var timeLeft = 101
 var score = 0
+var penalty = 10
 
 // array of questions and answers for quiz
 var questions = [
@@ -26,26 +27,31 @@ var questions = [
     {
       q: "A loop that never ends is referred to as a what?", 
       s: [ "Recursive loop", "While loop", "Infinite loop","for loop"], 
-      a: "Infinite loop" },
+      a: "Infinite loop" 
+    },
 
     {
       q: "Which command will stop an infinite loop?", 
       s: [ "Esc","Ctrl - C", "Shift - C", "Alt - C"], 
-      a: "Ctrl - C" },
+      a: "Ctrl - C" 
+    },
 
     {
       q: "During program development, software requirements specify", 
       s: ["What the task is that the program must perform", "How the program will accomplish the task", "How to divide the task into subtasks", "How to test the program when it is done"], 
-      a: "What the task is that the program must perform" },
+      a: "What the task is that the program must perform" 
+    },
 
     {
       q: "Which of the sets of statements below will add 1 to x if x is positive and subtract 1 from x if x is negative but leave x alone if x is 0?", 
       s: [, "If (x > 0) x++; else x--;", "If (x == 0) x = 0;else x++;x--;", "X++; x--;","If (x > 0) x++; else if (x < 0) x--;"], 
-      a: "If (x > 0) x++; else if (x < 0) x--;" }
+      a: "If (x > 0) x++; else if (x < 0) x--;" 
+    },
 ]
 
 function hideResults () {
   document.getElementById("results").style.display = "none";
+  console.log(hideResults)
 }
 
 // start quiz
@@ -101,6 +107,7 @@ function countdownTimer () {
         
         } else {
           console.log("false")
+          timeLeft -= penalty
           
         }
         questionIndex++

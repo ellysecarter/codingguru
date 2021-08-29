@@ -23,6 +23,7 @@
 <!-- Quiz questions and answers -->
   <div id="quiz">
     <div id="starting-page">
+      <div class="text-center">
       <div class="row">
         <div class="col-md-12">
         <h1 id="title">Coding Guru!</h1>
@@ -33,31 +34,47 @@
         <button id="start">Start Quiz!</button>
       </div>
       </div>
+    </div>
   </div>
 
-    <div id="questions-answers">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="questions-answers">
         <p id="question"></p>
-          <div id="answers"></div>
-      </div>
-      </div>
+        <div id="answers"></div>
+      </div> 
+    </div>
+  </div>
+    
+  </div>
   </div>
 
   <!-- Result page where you enter your initials -->
-  <div id="results">
-    <h1 id="title">All  done!</h1>
-    <p id="final-score">Your final score is <span id="final-score"></span></p>
-    <p id="initials">Enter your initials:</p>
-    <input type="text" name="initial" id="initial" placeholder="Initials" aria-label="Initials"/>
-    <button id="submit">Submit</button> 
+  <div class="row">
+    <div class="col-md-12">
+      <div id="results">
+        <h1 id="title">All  done!</h1>
+        <p id="final-score">Your final score is <span id="final-score"></span></p>
+        <p id="initials">Enter your initials:</p>
+        <input type="text" name="initial" id="initial" placeholder="Initials" aria-label="Initials"/>
+        <button id="submit">Submit</button> 
+      </div>
+    </div>
   </div>
+  
 
 <!-- view highs cores -->
-  <div class="high-scores">
-    <h2 id="score-header">High Scores!</h2>
-    <ol id="score-list"></ol>
-    <button id="clear">Clear high scores</button>
-    <button id="goback">Go Back</button>
+<div class="row">
+  <div class="col-md-12">
+    <div class="high-scores">
+      <h2 id="score-header">High Scores!</h2>
+      <ol id="score-list"></ol>
+      <button id="clear">Clear high scores</button>
+      <button id="goback">Go Back</button>
+    </div>
   </div>
+</div>
+  
 
   <script src="./assets/js/script.js"></script>
 </body>
