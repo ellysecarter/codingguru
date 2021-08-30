@@ -11,6 +11,8 @@ var goBackBtn = document.getElementById('goback')
 var finalScore = document.getElementById('final-score')
 var scoreListEl = document.getElementById('score-list')
 var scoresBtn = document.getElementById('scores')
+var rightWrong = document.getElementById("right-wrong");
+var endBtn = document.getElementById('end-quiz')
 var questionIndex = 0
 var timeLeft = 101
 var score = 0
@@ -51,6 +53,7 @@ var questions = [
 ]
 
 
+
 // start quiz
 var startQuiz = function (){
 
@@ -65,6 +68,13 @@ function hideWelcome (){
   document.getElementById("starting-page").style.display = "none";
 }
 
+var endQuiz = function () {
+  endQuiz ()
+}
+
+function endQuiz (){
+  document.getElementById("results").style.display = "none";
+}
 
 // Timer 
 function countdownTimer () {
@@ -80,12 +90,12 @@ function countdownTimer () {
       }   else if (timeLeft === 0 && questionIndex < 5 ){
         clearInterval(timeInterval);
         window.alert("Your time is up!")
-      }
 
-      if (questionIndex === 5 || timeLeft === 0){
+      }   else if (questionIndex === 5 || timeLeft === 0){
         clearInterval(timeInterval);
         document.getElementById("question").style.display = "none";
-      }  
+
+      } 
     },1000);
   }
   
@@ -107,12 +117,17 @@ function countdownTimer () {
         console.log(this.value)
         if( this.value==correctAnswer){
           console.log("true")
+          rightWrong.removeAttribute("hidden");
+          rightWrong.textContent = "Good Job! You got it correct";
         
         } else {
           console.log("false")
+          rightWrong.removeAttribute("hidden");
+          rightWrong.textContent = "Sorry, that was incorrect";
           timeLeft -= penalty
           
-        }
+        } 
+
          // hide previous answers but show current ones
         let allAnswers = document.querySelectorAll('.answer');
         allAnswers[0].remove()
@@ -125,13 +140,39 @@ function countdownTimer () {
 
         console.log(questionIndex)
       })
-    
+  
   }
-    
   }
 
+
+
+  // var lastQuestion = questions[4]; questionEl.innerText=lastQuestion.q 
+  //   var lastCorrectAnswer=lastQuestion.a
+  //   var answer=document.createElement("button")
+  //     answer.classList.add("answer")
+  //     var answerText=lastQuestion.s[i]
+  //     answer.innerText=answerText
+  //     answer.setAttribute("value", answerText)
+  //     answer.addEventListener("click", function() {
+  //       console.log(this.value)
+  //       if( this.value==lastCorrectAnswer){
+  //         console.log("true")
+        
+  //       } else {
+  //         console.log("false")
+  //         timeLeft -= penalty
+          
+  //       }) 
+      
 // if questionIndex > 4 then move on to final screen
 
+
+// end button here
+// var endQuiz = function(){
+//   resultsPage ()
+// }
+
+// var resultsPage = document.getElementById('results');
 
 // final score screen
 var highScore = function (){
@@ -149,8 +190,13 @@ var clearHighScore = function (){
 }
 
 
+
+
+
 // Add event listeners to generate buttons
 startBtn.addEventListener("click", startQuiz);
+
+
 
 // submitBtn.addEventListener("click", "");
 
@@ -159,3 +205,5 @@ startBtn.addEventListener("click", startQuiz);
 scoresBtn.addEventListener("click", highScore);
 
 goBackBtn.addEventListener("click", goBack); 
+
+endBtn.addEventListener("click", endQuiz);
