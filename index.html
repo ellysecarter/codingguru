@@ -13,7 +13,7 @@
 <body>
   <div class="row">
     <div class="col-sm-8">
-      <button id="scores">View High Scores</button>
+      <button id="scores" class="btn">View High Scores</button>
     </div>
     <div class="col-sm-6 offset-sm-10">
       <h2 id="timer">Time: <span id="countdown"></span></h2>
@@ -31,46 +31,50 @@
         <p id="challenge">You have one minute to answer the following code-related questions. Keep in mind that incorrect answers will penalize your score-time by 10 seconds!</p>
         <br />
         <p id="challenge">Goodluck!</p>
-        <button id="start">Start Quiz!</button>
+        <button id="start" class="btn">Start Quiz!</button>
       </div>
       </div>
     </div>
   </div>
+</div>
 
+  <div id="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" >
         <div id="questions-answers">
         <p id="question"></p>
-        <div id="answers"></div>
+        <div class="col-md-12">
+        <div id="answers" class="btn"></div>
+        </div>
       </div> 
     </div>
   </div>
-    
-  </div>
-  </div>
+</div>
+  
+
 
   <!-- Result page where you enter your initials -->
-  <div class="row">
+  <div class="row" style="display: none">
     <div class="col-md-12">
       <div id="results">
         <h1 id="title">All  done!</h1>
         <p id="final-score">Your final score is <span id="final-score"></span></p>
         <p id="initials">Enter your initials:</p>
         <input type="text" name="initial" id="initial" placeholder="Initials" aria-label="Initials"/>
-        <button id="submit">Submit</button> 
+        <button id="submit" class="btn">Submit</button> 
       </div>
     </div>
   </div>
   
 
 <!-- view highs cores -->
-<div class="row">
+<div class="row" style="display: none">
   <div class="col-md-12 center-align">
     <div class="high-scores">
       <h2 id="score-header">High Scores!</h2>
       <ol id="score-list"></ol>
-      <button id="clear">Clear high scores</button>
-      <button id="goback">Go Back</button>
+      <button id="clear" class="btn">Clear high scores</button>
+      <button id="goback" class="btn">Go Back</button>
     </div>
   </div>
 </div>

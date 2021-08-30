@@ -15,6 +15,7 @@ var questionIndex = 0
 var timeLeft = 101
 var score = 0
 var penalty = 10
+var storedScores = JSON.parse(localStorage.getItem("score-list"));
 
 // array of questions and answers for quiz
 var questions = [
@@ -44,7 +45,7 @@ var questions = [
 
     {
       q: "Which of the sets of statements below will add 1 to x if x is positive and subtract 1 from x if x is negative but leave x alone if x is 0?", 
-      s: [, "If (x > 0) x++; else x--;", "If (x == 0) x = 0;else x++;x--;", "X++; x--;","If (x > 0) x++; else if (x < 0) x--;"], 
+      s: ["If (x > 0) x++; else x--;", "If (x == 0) x = 0;else x++;x--;", "X++; x--;", "If (x > 0) x++; else if (x < 0) x--;"], 
       a: "If (x > 0) x++; else if (x < 0) x--;" 
     },
 ]
@@ -73,17 +74,22 @@ function hideWelcome (){
 function countdownTimer () {
     var timeInterval = setInterval(function() {
 
-          if (questionIndex > 4 && timeLeft > 0){
+          if (questionIndex > 5 && timeLeft > 0){
         timerEl.textContent = timeLeft 
 
-      }   else if (timeLeft > 0 && questionIndex < 4){
+      }   else if (timeLeft > 0 && questionIndex < 5){
         timeLeft--;
         timerEl.textContent = timeLeft;
         
-      }   else if (timeLeft === 0 && questionIndex < 4 ){
+      }   else if (timeLeft === 0 && questionIndex < 5 ){
         clearInterval(timeInterval);
         window.alert("Your time is up!")
       }
+
+      if (questionIndex === 5 || timeLeft === 0){
+        clearInterval(timeInterval);
+        document.getElementById("question").style.display = "none";
+      }  
     },1000);
   }
   
@@ -111,6 +117,7 @@ function countdownTimer () {
           timeLeft -= penalty
           
         }
+         // hide previous answers but show current ones
         let allAnswers = document.querySelectorAll('.answer');
         allAnswers[0].remove()
         allAnswers[1].remove()
@@ -118,7 +125,6 @@ function countdownTimer () {
         allAnswers[3].remove()
         questionIndex++
         questionChange()
-        // hide previous answers but show current ones
 
         console.log(questionIndex)
       })
@@ -127,14 +133,21 @@ function countdownTimer () {
     
   }
 
- // if right answer move on to next ques and say "right answer"
-
-  // if wrong answer move on to next ques and take off 10 seconds and display "wrong answer"
+// if questionIndex > 4 then move on to final screen
 
 
+// final score screen
+
+
+// function for go back button
 var goBack = function (){
   location.href = "https://ellysecarter.github.io/codingguru/"
 }  
+
+// function for the clear button
+var clearHighScore = function (){
+  localStorage.clear('score-list');
+}
 
 
 // Add event listeners to generate buttons
