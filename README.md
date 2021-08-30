@@ -25,7 +25,13 @@ You can select the "Go Back" button to start the quiz from the beginning.
 Open terminal or a similar app on your computer and change directory to Desktop. Copy https://github.com/ellysecarter/codingguru.git.  Use git clone and paste that link after it to clone the repository.  Open the folder it provides. Open the HTML folder inside. You can also go to this link to see the full site https://ellysecarter.github.io/codingguru/
 
 ## Known Bugs
+The final score does not show on the end quiz button page. 
 
+The time does not deduct 10 seconds at the last question if you get it wrong. 
+
+I did not have enough time to add to my local storage and save high scores. 
+
+Go back button was working but now cannot go to home screen like it originally did. 
 
 ## Contact Details
 email: ellysecarter@yahoo.com

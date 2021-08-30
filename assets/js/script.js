@@ -4,7 +4,7 @@ var answerEl = document.getElementById('answers')
 var timerEl = document.getElementById('countdown')
 var mainEl = document.getElementById('main')
 var startBtn = document.getElementById('start')
-var initialID = document.getElementById('initials')
+var initialID = document.getElementById('initial')
 var submitBtn = document.getElementById('submit')
 var clearBtn = document.getElementById('clear')
 var goBackBtn = document.getElementById('goback')
@@ -68,13 +68,7 @@ function hideWelcome (){
   document.getElementById("starting-page").style.display = "none";
 }
 
-var endQuiz = function () {
-  endQuiz ()
-}
 
-function endQuiz (){
-  document.getElementById("results").style.display = "none";
-}
 
 // Timer 
 function countdownTimer () {
@@ -99,7 +93,12 @@ function countdownTimer () {
     },1000);
   }
   
-
+  var endQuiz = function () {
+    endQuiz ()
+  }
+  function endQuiz (){
+    document.getElementById("results");
+  }
 
   // questions here
   function questionChange () {
@@ -168,11 +167,55 @@ function countdownTimer () {
 
 
 // end button here
-// var endQuiz = function(){
-//   resultsPage ()
-// }
+var endQuiz = function(){
+  location.href = "results.html"
+}
 
 // var resultsPage = document.getElementById('results');
+
+// enter initials and save score
+function scoreScreen() {
+  var input = document.createElement("initial");
+  var body = document.body;
+  var finalScore = timeLeft;
+  var submit = document.createElement('button');
+
+  initialID.textContent = finalScore
+  body.appendChild(h2El);
+
+  input.setAttribute('id', 'initial');
+  input.placeholder = "Initials";
+  body.appendChild(input);
+
+  submit.className = "questionChoices"
+  submit.textContent = 'Submit';
+  body.appendChild(submit);
+
+  submit.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    userInput.push(initials.value);
+    storeScore();
+    var Final = {
+      Name: userInput,
+      Score: timeLeft
+    }
+    scores.push(Final);
+    localStorage.setItem("Quiz Score", JSON.stringify(scores));
+    scorePage();
+    })
+    
+}
+
+function scorePage() {
+  location.href = "HighScore.html"
+}
+
+function storeScore() {
+      localStorage.setItem("Name", [userInput]);
+      localStorage.setItem("Score", timeLeft);
+    }
+
 
 // final score screen
 var highScore = function (){
@@ -203,7 +246,6 @@ startBtn.addEventListener("click", startQuiz);
 // clearBtn.addEventListener("click", "");
 
 scoresBtn.addEventListener("click", highScore);
-
+endBtn.addEventListener("click", endQuiz);
 goBackBtn.addEventListener("click", goBack); 
 
-endBtn.addEventListener("click", endQuiz);
