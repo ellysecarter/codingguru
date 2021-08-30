@@ -20,7 +20,7 @@ var storedScores = JSON.parse(localStorage.getItem("score-list"));
 // array of questions and answers for quiz
 var questions = [
     {
-      q: "What is the process of finding errors and fixing them within a program", 
+      q: "What is the process of finding errors and fixing them within a program?", 
       s:["Debugging", "Scanning", "Executing", "Compiling"], 
       a: "Debugging" 
     },
@@ -38,7 +38,7 @@ var questions = [
     },
 
     {
-      q: "During program development, software requirements specify", 
+      q: "During program development, software requirements specify what?", 
       s: ["What the task is that the program must perform", "How the program will accomplish the task", "How to divide the task into subtasks", "How to test the program when it is done"], 
       a: "What the task is that the program must perform" 
     },
@@ -50,10 +50,6 @@ var questions = [
     },
 ]
 
-function hideResults () {
-  document.getElementById("results").style.display = "none";
-  console.log(hideResults)
-}
 
 // start quiz
 var startQuiz = function (){
@@ -123,6 +119,7 @@ function countdownTimer () {
         allAnswers[1].remove()
         allAnswers[2].remove()
         allAnswers[3].remove()
+
         questionIndex++
         questionChange()
 
@@ -138,7 +135,7 @@ function countdownTimer () {
 
 // final score screen
 var highScore = function (){
-  location.href = "highscore.html"
+  location.href = "https://ellysecarter.github.io/codingguru/highscore.html"
 }
 
 // function for go back button
