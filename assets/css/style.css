@@ -9,45 +9,6 @@ body {
   background-color: tan;
 }
 
-.wrap {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color:black;
-}
-
-header h2 {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color:black;
-}
-
-header p {
-  text-align: center;
-  padding-left: 200px;
-  padding-right: 200px;
-  padding-top: 0px;
-  color:black;
-  font-size: 22px;
-}
-
-header p2 {
-    text-align: center;
-    padding-left: 200px;
-    padding-right: 200px;
-    padding-top: 0px;
-    color:black;
-    font-size: 30px;
-    font-weight: bold;
-  }
-
   .btn {
     font-size: 30px;
     font-weight: 500;
@@ -78,6 +39,11 @@ header p2 {
   cursor: pointer;
 }
 
+#answers {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 button[disabled] {
   cursor: default;

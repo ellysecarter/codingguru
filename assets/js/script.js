@@ -137,7 +137,9 @@ function countdownTimer () {
 
 
 // final score screen
-
+var highScore = function (){
+  location.href = "highscore.html"
+}
 
 // function for go back button
 var goBack = function (){
@@ -157,6 +159,6 @@ startBtn.addEventListener("click", startQuiz);
 
 // clearBtn.addEventListener("click", "");
 
-// scoresBtn.addEventListener("click", "");
+scoresBtn.addEventListener("click", highScore);
 
 goBackBtn.addEventListener("click", goBack); 
